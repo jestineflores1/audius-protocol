@@ -120,6 +120,11 @@ class SnapbackSM {
       'maxSyncMonitoringDurationInMs'
     )
 
+    const reconfigNodeWhitelist = this.nodeConfig.get('reconfigNodeWhitelist')
+    this.reconfigNodeWhitelist = reconfigNodeWhitelist
+      ? new Set(reconfigNodeWhitelist.split(','))
+      : null
+
     // Throw an error if no libs are provided
     if (
       !this.audiusLibs ||
@@ -1048,7 +1053,8 @@ class SnapbackSM {
         const { services: healthyServicesMap } =
           await this.audiusLibs.ServiceProvider.autoSelectCreatorNodes({
             performSyncCheck: false,
-            log: false
+            whitelist: this.reconfigNodeWhitelist,
+            log: true
           })
 
         const healthyNodes = Object.keys(healthyServicesMap)
