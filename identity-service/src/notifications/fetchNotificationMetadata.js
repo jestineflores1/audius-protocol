@@ -234,6 +234,12 @@ async function fetchNotificationMetadata (audius, userIds = [], notifications, f
         trackIdsToFetch.push(notification.entityId)
         break
       }
+      case NotificationType.TrackAddedToPlaylist: {
+        trackIdsToFetch.push(notification.entityId)
+        userIdsToFetch.push(notification.initiator)
+        collectionIdsToFetch.push(notification.playlistId)
+        break
+      }
     }
   }
 

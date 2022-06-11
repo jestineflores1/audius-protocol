@@ -148,7 +148,7 @@ function formatChallengeReward (notification) {
 function formatTrackAddedToPlaylist (notification, metadata) {
   return {
     type: NotificationType.TrackAddedToPlaylist,
-    track: metadata.tracks[notification.entityId],
+    track: metadata.tracks[notification.track_id],
     playlist: metadata.collections[notification.metadata.playlistId],
     playlistOwner: metadata.users[notification.metadata.playlistOwnerId]
   }
@@ -238,7 +238,7 @@ const NewSubscriptionUpdateTitle = 'New Artist Update'
 const TrendingTrackTitle = 'Congrats - You’re Trending! 📈'
 const RemixCreateTitle = 'New Remix Of Your Track ♻️'
 const RemixCosignTitle = 'New Track Co-Sign! 🔥'
-const TrackAddedToPlaylistTitle = 'Your track was added to a playlist! 🎧'
+const TrackAddedToPlaylistTitle = 'Your track was added to a playlist! 💿'
 
 const challengeInfoMap = {
   'profile-completion': {
@@ -351,7 +351,11 @@ const pushNotificationMessagesMap = {
     return notification.challengeId === 'referred'
       ? `You’ve received ${challengeInfoMap[notification.challengeId].amount} $AUDIO for being referred! Invite your friends to join to earn more!`
       : `You’ve earned ${challengeInfoMap[notification.challengeId].amount} $AUDIO for completing this challenge!`
+  },
+  [notificationTypes.TrackAddedToPlaylist] (notification) {
+    return `${notification.playlistOwner.name} added your track track ${notification.track.title} to their playlist ${notification.playlist.playlist_name}`
   }
+
 }
 
 module.exports = {
