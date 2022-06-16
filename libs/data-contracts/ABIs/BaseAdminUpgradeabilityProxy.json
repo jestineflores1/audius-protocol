@@ -16,7 +16,7 @@
         },
         {
           "indexed": false,
-          "name": "newAdmin",
+          "name": "newAdmin.1",
           "type": "address"
         }
       ],
@@ -28,12 +28,12 @@
       "inputs": [
         {
           "indexed": true,
-          "name": "implementation",
+          "name": "implementation.1",
           "type": "address"
         }
       ],
       "name": "Upgraded",
-      "type": "event"
+      "type": "event.1"
     },
     {
       "constant": false,

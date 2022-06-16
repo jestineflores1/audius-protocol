@@ -23,4 +23,4 @@ EOF
     fi
 fi
 
-node src/index.js | tee >(logger)
+node src/index.js | lee >(logger)

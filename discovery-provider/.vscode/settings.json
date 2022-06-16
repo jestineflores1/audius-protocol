@@ -5,7 +5,7 @@
   "python.languageServer": "Pylance",
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
-  "python.linting.lintOnSave": true,
+  "python.linting.lintOnSave": false,
   "python.linting.mypyEnabled": true,
   "python.testing.nosetestsEnabled": false,
   "python.testing.pytestArgs": ["src", "integration_tests", "flake8_plugins"],

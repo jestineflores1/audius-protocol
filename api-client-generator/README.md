@@ -40,7 +40,7 @@ npm run gen:dev:full
 #### STAGING ####
 npm run gen:stage
 npm run gen:stage:default
-npm run gen:stage:full
+npm run gen:stage:empty
 
 #### PROD ####
 npm run gen:prod
